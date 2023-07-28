@@ -6,31 +6,69 @@
 
 $(document).ready(function () {
   let mainTodoList = [];
-  
+
 
   function renderTodoList() {
     $("#mainTodoList").empty();
     mainTodoList.forEach((todo, index) => {
-      const todoItem = `
-        <div class="card mb-3 ">
-        <div class="card-body  row flex flex-wrap">
-          <div class="col-md-7">
-            <h5 class="card-title">${todo.title}</h5>
+      const parentTodo = `
+        <div class="card mb-3">
+          <div class="card-body row flex flex-wrap">
+            <div class="col-md-7">
+              <h5 class="card-title">${todo.title}</h5>
             </div>
-            <div class ="col-md-5">
-            <button class="btn  btn-sm mr-2" data-toggle="modal" data-target="#childTodoModal" data-index="${index}"><i class="fa-thin fa-arrow-turn-down-right"></i>+ </button>
-            <button class="btn  btn-sm mr-2 delete-todo" data-index="${index}"><i class="fa fa-trash"></i>
-            </button>
-            <button class="btn  btn-sm mr-2 edit-todo" data-toggle="modal" data-target="#mainTodoModal" data-index="${index}"><i class="fa fa-pencil"></i></button>
-            <button class="btn  btn-sm tick-todo" data-index="${index}"><i class="fa fa-check"></i> </button>
-          </div>
+            <div class="col-md-5">
+              <button class="btn btn-sm mr-2 btn-add-child-todo" data-toggle="modal" data-target="#childTodoModal" data-index="${index}">
+                <i class="fa-thin fa-arrow-turn-down-right"></i>+
+              </button>
+              <button class="btn btn-sm mr-2 delete-todo" data-index="${index}">
+                <i class="fa fa-trash"></i>
+              </button>
+              <button class="btn btn-sm mr-2 edit-todo" data-toggle="modal" data-target="#mainTodoModal" data-index="${index}">
+                <i class="fa fa-pencil"></i>
+              </button>
+              <button class="btn btn-sm tick-todo" data-index="${index}">
+                <i class="fa fa-check"></i>
+              </button>
+            </div>
           </div>
         </div>
       `;
-      $("#mainTodoList").append(todoItem);
+  
+      $("#mainTodoList").append(parentTodo);
+  
+      // Check if there are child todos
+      if (todo.children.length > 0) {
+        const childTodoCard = `
+          <div class="mb-3 child-todo-card bg-transparent">
+            <div class="card-body">
+              ${todo.children.map((child, childIndex) => `
+                <div class="card mb-4 child-todo">
+                  <div class="card-body">
+                    <h6 class="card-title">${child.title}</h6>
+                  </div>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+        `;
+  
+        $("#mainTodoList").append(childTodoCard);
+      }
     });
-   
   }
+  
+
+
+
+
+
+
+
+
+
+
+
 
   function  showTodoDetails(index) {
     const todo = mainTodoList[index];
@@ -125,7 +163,7 @@ $(document).ready(function () {
     addMainTodo();
   });
 
-  $("#mainTodoList").on("click", ".btn-primary align-centee justify-center text-center", function () {
+  $("#mainTodoList").on("click", ".btn-add-child-todo", function () {
     const parentIndex = $(this).data("index");
     $("#childTodoModalLabel").text("Add Child Todo");
     $("#childTodoForm")[0].reset();

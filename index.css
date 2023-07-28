@@ -25,3 +25,11 @@
 .clicked {
   background-color:  #e1e1e1;
 }
+
+.custom-toggler .navbar-toggler-icon {
+  color: white;
+}
+.mainbtn {
+  bottom: 0;
+  right: 0;
+}
