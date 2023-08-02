@@ -11,40 +11,47 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-light flex px-3 text-white">
-    <button class="navbar-toggler text-white " type="button" data-toggle="collapse" data-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon  text-white"></span>
-    </button>
+  <nav class=" ">
+    <div class="navigation row px-3 text-white justify-content-between">
 
-    <div class=" row mt-3  flex flex-row">
-      <div class="col-md-8  flex-start row rounded-5 border-white">
-        <div class="col-md-9 ">
-          <input type="text" class="  rounded-5 bg-transparent border-white text-white" id="searchInput"
-            placeholder="Search... ">
-        </div>
-        <div class="col-md-3 ml-n2 text-black opacity-50">
-          <span><i class="fa fa-search"></i></span>
-        </div>
+      <div class="col-8 mt-3">
+         <span> <i class="fa fa-bars fa-2x"></i></span>
       </div>
-      <div class="col-md-2 white-circle">
-        <i class="fa fa-bell fa-2x text-white"></i>
-      </div>
-      <div class="col-md-2">
-        <i class="fa fa-user fa-2x text-white"></i>
+
+      <div class="col justify content-end">
+        <div class="row m-3">
+          <div class="col-md-8 d-flex align-items-center ">
+            <div class="position-relative w-100">
+              <input type="text" class="rounded-5 bg-transparent border border-white text-white w-100" id="searchInput" placeholder="">
+              <span class="position-absolute top-50 end-0 translate-middle p-2 px-0">
+                <i class="fa fa-search"></i>
+              </span>
+            </div>
+          </div>
+        
+          <div class="col-md-2 d-flex align-items-center justify-content-center white-circle">
+            <i class="fa fa-bell fa-2x text-white"></i>
+            <span class="red-dot bg-danger"></span>
+          </div>
+        
+          <div class="col-md-1 d-flex align-items-center justify-content-center border border-white rounded-5">
+            <i class="fa fa-user fa-2x text-white p-1"></i>
+          </div>
+        </div>
+        
       </div>
     </div>
   </nav>
 
   <div class="row p-0">
-    <div class="col-sm-4 menu-down p-0">
-      <div class="px-5 active option" id="Option1">Today's Task</div>
-      <div class="px-5 active option" id="Option2">Tomorrow</div>
-      <div class="px-5 active option" id="Option3">Important</div>
-      <div class="px-5 active option" id="Option4">Archive</div>
-      <div class="px-5 active option" id="Option5">Completed</div>
+    <div class="col-md-3 menu-down p-0">
+      <div class="px-4 active option py-2" id="Option1 text-color">Today's Task</div>
+      <div class="px-4 active option py-2" id="Optiontext-color">Tomorrow</div>
+      <div class="px-4 active option py-2" id="Option3text-color">Important</div>
+      <div class="px-4 active option py-2" id="Optiontext-color">Archive</div>
+      <div class="px-4 active option py-2" id="Optiontext-color">Completed</div>
     </div>
-    <div class="col-sm-4 todo-list">
+    <div class="col-md-6 todo-list ">
       <!-- Main Todo Modal -->
       <div class="modal fade" id="mainTodoModal" tabindex="-1" role="dialog" aria-labelledby="mainTodoModalLabel"
         aria-hidden="true">
@@ -58,12 +65,20 @@
             </div>
             <div class="modal-body">
               <form id="mainTodoForm">
-                <input type="text" class=" w-100 m-1 rounded-2" id="mainTitle" required placeholder="Title">
-                <input type="text" class="w-50 m-1 rounded-2" id="mainStartDate" required placeholder="start date">
-                <input type="text" class=" w-50 m-1  rounded-2" id="mainEndDate" required placeholder="end date">
-                <textarea class=" w-100 m-1 rounded-2" id="mainDescription" rows="3" required
+                <input type="text" class="form-control w-100 m-2 rounded-2" id="mainTitle" required placeholder="Title">
+                <div class="row">
+                  <div class="col-md-6">
+                    <input type="text" class="form-control m-2 rounded-2" id="mainStartDate" required placeholder="start date">
+                  </div>
+                  <div class="col-md-6">
+                    <input type="text" class="form-control m-2 rounded-2" id="mainEndDate" required placeholder="end date">
+                  </div>
+                </div>
+                <textarea class="form-control w-100 m-2 rounded-2" id="mainDescription" rows="3" required
                   placeholder="Description"></textarea>
-                <button type="submit" class="btn btn-primary text-center justify-center">Add</button>
+                <div class="text-center">
+                  <button type="submit" class="btn grean-btn btn-primary text-center justify-center w-50">create task</button>
+                </div>
               </form>
             </div>
           </div>
@@ -76,45 +91,58 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="childTodoModalLabel" data-parentIndex=""> <i class="fa fa-plus"></i></h5>
+              <h5 class="modal-title" id="childTodoModalLabel" data-parentIndex=""> Create child todo</i></h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
               <form id="childTodoForm">
+
                 <div class="form-group">
-                  <label for="childTitle">Title</label>
-                  <input type="text" class="form-control" id="childTitle" required>
+                  <label for="childTitle"></label>
+                  <input type="text" class="form-control m-2" id="childTitle" required>
                 </div>
-                <div class="form-group">
-                  <input type="date" class="form-control" id="childStartDate" required placeholder="Start date">
+
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <input type="date" class="form-control m-2" id="childStartDate" required placeholder="Start date">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <input type="date" class="form-control m-2" id="childEndDate" required placeholder="end date">
+                  </div>
                 </div>
+
                 <div class="form-group">
-                  <input type="date" class="form-control" id="childEndDate" required placeholder="end date">
-                </div>
-                <div class="form-group">
-                  <textarea class="form-control" id="childDescription" rows="3" required
+                  <textarea class="form-control m-2" id="childDescription" rows="3" required
                     placeholder="Description"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary btn-add-child-todo" data-toggle="modal"
-                  data-target="#childTodoModal" data-index="${index}">Add</button>
+
+                <div class="text-center">
+                  <button type="submit" class="btn grean-btn btn-primary btn-add-child-todo w-50 m-2" data-toggle="modal"
+                  data-target="#childTodoModal" data-index="${index}">Create child</button>
+                </div>
+  
               </form>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="container mt-5  w-1 text-end mb-0 mr-0">
+      <div class="container mt-5  w-1 text-end mb-0 mr-0 position-relative">
         <div id="mainTodoList" class="text-start Maintodolist-class">
         </div>
         <div id="childTodoList" class="text-start">
         </div>
-        <button id="addMainTodo" class="mainbtn btn btn-white btn-rounded btn-sm float-right mb-3 bg-white b"> <i
-            class="fa fa-plus"></i></button>
+      
+      </div>
+      <div class="d-flex justify-content-end my-3">
+        <button id="addMainTodo" class="btn btn-white btn-circle btn-sm bg-white">
+          <i class="fa fa-plus"></i>
+        </button>
       </div>
     </div>
-    <div class="col-sm-4" id="todoDetails">
+    <div class="col-md-3" id="todoDetails">
     </div>
   </div>
 
@@ -125,3 +153,6 @@
 </body>
 
 </html>
+
+
+
