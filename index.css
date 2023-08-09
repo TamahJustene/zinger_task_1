@@ -1,24 +1,26 @@
+@font-face {
+  font-family: 'Bahnschrift';
+  src: url('assets/bahnschrift.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
 /* Custom CSS to position the red dot */
 .icon-wrapper {
   display: inline-block;
   position: relative;
 }
 
-.red-dot {
-  position: absolute;
-  top: 20px; 
-  right: 135px; 
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-
 .navigation {
   background-color: #076fb4;
 }
+
 .todo-list {
   background-color: #e1e1e1;
 }
+
 .Maintodolist-class {
   background-color: #E1E1E1;
 }
@@ -28,20 +30,20 @@
   cursor: pointer;
   color: #707070;
 }
+
 .clicked {
-  background-color:  #E1E1E1;
+  background-color: #E1E1E1;
 }
 
-.custom-toggler .navbar-toggler-icon {
-  color: white;
-}
 .mainbtn {
   bottom: 0;
   right: 0;
 }
+
 .grean-btn {
   background-color: #076fb4;
 }
+
 .card-body {
   color: #707070;
 }
@@ -49,7 +51,8 @@
 .text-area-both {
   background-color: #F6F6F6;
 }
-.ml-3 > .row {
+
+.ml-3>.row {
   list-style: none;
 }
 
@@ -60,16 +63,95 @@
 /* Custom styles for the circular button */
 .btn-circle {
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  width: 60px;
+  height: 60px;
+  box-shadow: 0px 3px 4px #00000029;
+  opacity: 1;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.btn-circle i {
-  line-height: 1;
+.modal-body input,
+textarea {
+  background: #00000029 0% 0% no-repeat padding-box;
+  opacity: 30%;
+}
+
+.modal-body textarea {
+  background: #00000029 0% 0% no-repeat padding-box;
+}
+
+.modal-body {
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+}
+
+.modal-title {
+  font: normal normal normal 20px/28px Bahnschrift;
+  letter-spacing: 1px;
+  color: #707070;
+  opacity: 1;
+}
+
+.completed {
+  color: green;
+
+}
+
+.important {
+  color: yellow;
+}
+
+.btn-circle {
+  background-color: white;
+}
+
+.btn-circle:hover {
+  background-color: #9D9B9B;
+  transform: scale(1.1);
+
+}
+
+/* .first-section {
+  /* UI Properties */
+  /* background: #E1E1E1 0% 0% no-repeat padding-box;
+  opacity: 0.36;
+} */ */
+
+.third-section {
+
+  background: #E1E1E1 0% 0% no-repeat padding-box;
+  opacity: 0.13;
+}
+
+.details-heading h5 {
+  font: normal normal 600 18px/24px Bahnschrift;
+  letter-spacing: 0.9px;
+  color: #100f0f;
+  opacity: 1;
+
+}
+
+.todoDetails h5 {
+  color: black;
+}
+
+.todoDetails {
+  font: normal normal 300 18px/24px Bahnschrift;
+  letter-spacing: 0.9px;
+  color: #707070;
+  opacity: 0.71;
 }
 
 
+.card.main-todo.clicked {
+  background: #EEF8FF 0% 0% no-repeat padding-box;
+ 
+}
+.icon-hover {
+  color: white;
+}
+
+.fa-xl {
+  color: #bebfc1; 
+}

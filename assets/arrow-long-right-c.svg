@@ -1,0 +1,11 @@
+<svg id="arrow-long-right-c" xmlns="http://www.w3.org/2000/svg" width="19.842" height="23" viewBox="0 0 19.842 23">
+  <g id="arrow-long-right-c-2" data-name="arrow-long-right-c" transform="translate(10.589 12.275)">
+    <g id="arrow-long-right-c-3" data-name="arrow-long-right-c" transform="translate(-10.589 -12.275)">
+      <g id="arrow-long-right-c-4" data-name="arrow-long-right-c">
+        <path id="Path_14" data-name="Path 14" d="M14.932,13.194,13.3,14.83l2.13,2.122-9.895.037a.857.857,0,0,1-.86-.854l-.036-9.4a3.467,3.467,0,1,0-2.311.01L2.364,17v.167A2.145,2.145,0,0,0,4.517,19.3h.168l.989,0,1.56-.008,8.172-.028-2.1,2.1L14.946,23l4.9-4.912ZM2.312,3.472a1.156,1.156,0,1,1,1.164,1.15h0A1.156,1.156,0,0,1,2.312,3.472Z" transform="translate(0 0)" fill="#404040" fill-rule="evenodd"/>
+      </g>
+    </g>
+  </g>
+  <rect id="Rectangle_38" data-name="Rectangle 38" width="2" height="8" transform="translate(14.566 0)" fill="#404040"/>
+  <rect id="Rectangle_39" data-name="Rectangle 39" width="2" height="8" transform="translate(19.566 3) rotate(90)" fill="#404040"/>
+</svg>

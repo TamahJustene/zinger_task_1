@@ -7,49 +7,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-  <nav class=" ">
-    <div class="navigation row px-3 text-white justify-content-between">
+  <nav class="navigation  py-3">
+    <div class="row text-white justify-content-between container-fluid">
 
-      <div class="col-8 mt-3">
-         <span> <i class="fa fa-bars fa-2x"></i></span>
+      <div class="col-8 px-4">
+        <img src="assets/menu.svg" alt="">
       </div>
 
-      <div class="col justify content-end">
-        <div class="row m-3">
-          <div class="col-md-8 d-flex align-items-center ">
+      <div class="col-md-4  p-0 m-0 container-fluid">
+        <div class="row container-fluid w-100 m-0 p-0 justify-content-between">
+          <div class="col-md-9 d-flex align-items-center ">
             <div class="position-relative w-100">
-              <input type="text" class="rounded-5 bg-transparent border border-white text-white w-100" id="searchInput" placeholder="">
-              <span class="position-absolute top-50 end-0 translate-middle p-2 px-0">
+              <input type="text" class="rounded-5 bg-transparent border border-white text-white w-100" id="searchInput"
+                placeholder="">
+              <span class="position-absolute top-50 end-0 translate-middle  px-0">
                 <i class="fa fa-search"></i>
               </span>
             </div>
           </div>
-        
-          <div class="col-md-2 d-flex align-items-center justify-content-center white-circle">
-            <i class="fa fa-bell fa-2x text-white"></i>
-            <span class="red-dot bg-danger"></span>
+
+          <div class="col-md-1 d-flex align-items-center justify-content-center white-circle">
+            <img src="assets/notification-solid-badged.svg" alt="">
+            </i>
+
           </div>
-        
-          <div class="col-md-1 d-flex align-items-center justify-content-center border border-white rounded-5">
-            <i class="fa fa-user fa-2x text-white p-1"></i>
+
+          <div class="col-md-1 m-0 p-0">
+            <img src="assets/person-circle.svg" alt="">
           </div>
         </div>
-        
+
       </div>
     </div>
   </nav>
 
-  <div class="row p-0">
-    <div class="col-md-3 menu-down p-0">
-      <div class="px-4 active option py-2" id="Option1 text-color">Today's Task</div>
-      <div class="px-4 active option py-2" id="Optiontext-color">Tomorrow</div>
-      <div class="px-4 active option py-2" id="Option3text-color">Important</div>
-      <div class="px-4 active option py-2" id="Optiontext-color">Archive</div>
-      <div class="px-4 active option py-2" id="Optiontext-color">Completed</div>
+  <div class="row  px-0 m-0 container-fluid">
+    <div class="col-md-3 menu-down p-0 first-section">
+      <div class="active option py-2 px-4 category-btn" id="Option1 text-color" data-category="today">Today's Task</div>
+      <div class="active option py-2 px-4 category-btn" id="Option2 text-color" data-category="tomorrow">Tomorrow</div>
+      <div class="active option py-2 px-4 category-btn" id="Option3 text-color " data-category="future">future</div>
+      <div class="active option py-2 px-4 category-btn" id="Option4 text-color" data-category="important">Important
+      </div>
+      <div class="active option py-2 px-4 category-btn" id="Option5 text-color" data-category="archive">Archive</div>
+      <div class="active option py-2 px-4 category-btn" id="Optiont 6ext-color" data-category="completed">Completed
+      </div>
     </div>
     <div class="col-md-6 todo-list ">
       <!-- Main Todo Modal -->
@@ -57,27 +63,28 @@
         aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="mainTodoModalLabel">Add Main Todo</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+            <div class="modal-header d-flex justify-content-center">
+              <h5 class="modal-title " id="mainTodoModalLabel">Add Main Todo</h5>
             </div>
             <div class="modal-body">
               <form id="mainTodoForm">
-                <input type="text" class="form-control w-100 m-2 rounded-2" id="mainTitle" required placeholder="Title">
+                <input type="text" class="form-control w-100 m-2 rounded-2  border-transparent " id="mainTitle" required
+                  placeholder="Title">
                 <div class="row">
                   <div class="col-md-6">
-                    <input type="text" class="form-control m-2 rounded-2" id="mainStartDate" required placeholder="start date">
+                    <input type="text" class="form-control m-2 rounded-2 r border-transparent " id="mainStartDate"
+                      required placeholder="start date" onfocus="(this.type='date')" onblur="(this.type='text')">
                   </div>
                   <div class="col-md-6">
-                    <input type="text" class="form-control m-2 rounded-2" id="mainEndDate" required placeholder="end date">
+                    <input type="text" class="form-control m-2 rounded-2 border border-transparent" id="mainEndDate"
+                      required placeholder="end date" onfocus="(this.type='date')" onblur="(this.type='text')">
                   </div>
                 </div>
                 <textarea class="form-control w-100 m-2 rounded-2" id="mainDescription" rows="3" required
                   placeholder="Description"></textarea>
                 <div class="text-center">
-                  <button type="submit" class="btn grean-btn btn-primary text-center justify-center w-50">create task</button>
+                  <button type="submit" class="btn grean-btn btn-primary text-center justify-center w-50">create
+                    task</button>
                 </div>
               </form>
             </div>
@@ -90,26 +97,28 @@
         aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header d-flex justify-content-center">
               <h5 class="modal-title" id="childTodoModalLabel" data-parentIndex=""> Create child todo</i></h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
-              </button>
+              </button> -->
             </div>
             <div class="modal-body">
               <form id="childTodoForm">
 
                 <div class="form-group">
                   <label for="childTitle"></label>
-                  <input type="text" class="form-control m-2" id="childTitle" required>
+                  <input type="text" class="form-control m-2" id="childTitle" required placeholder="Task name">
                 </div>
 
                 <div class="row">
                   <div class="form-group col-md-6">
-                    <input type="date" class="form-control m-2" id="childStartDate" required placeholder="Start date">
+                    <input type="text" class="form-control m-2" id="childStartDate" required placeholder="Start date"
+                      onfocus="(this.type='datetime-local')" onblur="(this.type='text')">
                   </div>
                   <div class="form-group col-md-6">
-                    <input type="date" class="form-control m-2" id="childEndDate" required placeholder="end date">
+                    <input type="text" class="form-control m-2" id="childEndDate" required placeholder="end date"
+                      onfocus="(this.type='datetime-local')" onblur="(this.type='text')">
                   </div>
                 </div>
 
@@ -119,30 +128,46 @@
                 </div>
 
                 <div class="text-center">
-                  <button type="submit" class="btn grean-btn btn-primary btn-add-child-todo w-50 m-2" data-toggle="modal"
-                  data-target="#childTodoModal" data-index="${index}">Create child</button>
+                  <button type="submit" class="btn grean-btn btn-primary btn-add-child-todo w-50 m-2"
+                    data-toggle="modal" data-target="#childTodoModal" data-index="${index}">Create child</button>
                 </div>
-  
+
               </form>
             </div>
           </div>
         </div>
       </div>
-
+      <!-- 
       <div class="container mt-5  w-1 text-end mb-0 mr-0 position-relative">
         <div id="mainTodoList" class="text-start Maintodolist-class">
         </div>
         <div id="childTodoList" class="text-start">
         </div>
-      
+
+      </div> -->
+
+      <div class="container mt-5 w-1 text-end mb-0 mr-0 position-relative">
+        <div id="mainTodoList" class="text-start Maintodolist-class">
+          <!-- Main todo cards will have the "main-todo" class -->
+        </div>
+        <div id="childTodoList" class="text-start">
+          <!-- Child todo cards won't have the "main-todo" class -->
+        </div>
       </div>
-      <div class="d-flex justify-content-end my-3">
-        <button id="addMainTodo" class="btn btn-white btn-circle btn-sm bg-white">
-          <i class="fa fa-plus"></i>
+
+
+
+
+
+
+      <div class="d-flex justify-content-end my-5 mainbutton">
+        <button id="addMainTodo" class="btn btn-white btn-circle btn-xl  ">
+          <i class="fa-sharp fa-regular fa-plus fa-3x icon-hover" style="color: #9d9b9b;"></i>
+
         </button>
       </div>
     </div>
-    <div class="col-md-3" id="todoDetails">
+    <div class="col-md-3 third-section todoDetails m-0  container-fluid px-4 " id="todoDetailsModal">
     </div>
   </div>
 
@@ -150,9 +175,12 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="index.js"></script>
+  <script src="https://kit.fontawesome.com/7bfe79ae64.js" crossorigin="anonymous"></script>
+
+
+
+  <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
-
-
-
