@@ -77,6 +77,10 @@ textarea {
   background: #00000029 0% 0% no-repeat padding-box;
   opacity: 30%;
 }
+.modal-body input::placeholder, textarea::placeholder {
+  color: #000000;
+  font-weight: bolder;
+}
 
 .modal-body textarea {
   background: #00000029 0% 0% no-repeat padding-box;
@@ -98,7 +102,7 @@ textarea {
 
 }
 
-.important {
+.star-original.important {
   color: yellow;
 }
 
@@ -148,10 +152,50 @@ textarea {
   background: #EEF8FF 0% 0% no-repeat padding-box;
  
 }
-.icon-hover {
-  color: white;
+.icon-hover:hover {
+  color: white !important;
 }
 
 .fa-xl {
   color: #bebfc1; 
 }
+.star-original {
+  color: #707070;
+}
+
+.tick-todo.active {
+  color: green;
+}
+/* input::placeholder {
+  color: black;
+  font-weight: bolder;
+} */
+
+.child-render-negative {
+  margin-top: -30px !important;
+}
+/* .arrow-child{
+  margin-left: 5px;
+} */
+
+
+
+
+
+
+
+
+.arrow-line {
+  position: relative;
+  width: 24px; /* Adjust the width of the arrow line as needed */
+  
+}
+
+.arrow-line img {
+  width: 100%;
+  margin-left: 130% !important;
+  height: auto;
+  display: block;
+}
+
+

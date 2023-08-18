@@ -14,6 +14,7 @@ $(document).ready(function () {
     if (filteredList.length === 0) {
       $("#mainTodoList").html(`<p>No task ${category}.</p>`);
     } else {
+      console.log("I click on this")
       filteredList.forEach((todo, index) => {
         const parentTodo = `
           <div class="card main-todo transparent ${todo.completed ? 'completed' : ''} ${todo.important ? 'important' : ''}">
@@ -27,22 +28,36 @@ $(document).ready(function () {
                   <img src="assets/arrow-long-right-c.svg" alt="">
                 </button>
                 <button class="btn btn-sm mr-2 delete-todo" data-index="${index}" data-type="main">
-                  <img src="assets/delete.svg" alt="">
-                </button>
+                <img src="assets/delete.svg" alt="">
+              </button>
                 <button class="btn btn-sm mr-2 edit-todo" data-toggle="modal" data-target="#mainTodoModal" data-index="${index}">
                   <img src="assets/edit.svg" alt="">
                 </button>
                 <button class="btn btn-sm tick-todo ${todo.completed ? 'completed' : ''}" data-index="${index}">
                 <i class="fa-sharp fa-solid fa-circle-check fa-xl"></i>
                 </button>
-                <button class="btn btn-sm star ${todo.important ? 'important' : ''}" data-index="${index}">
-                <i class="fas fa-star fa-xl " ></i>
-                <i class="fas fa-star"></i>
+                <button class="btn btn-sm star star-original  ${todo.important ? 'important' : ''}" data-index="${index}">
+                <i class="fas fa-star fa-2x"></i>
                 </button>
               </div>
             </div>
           </div>
-          
+        
+
+        ${
+          // Check if there are child todos
+          todo.children.length > 0
+            ? `<div class="arrow-line">
+         
+            <img src="assets/Path 18 (1).svg" alt="">
+        
+            </div>`
+            : ''
+          }
+
+
+
+
         `;
 
         $("#mainTodoList").append(parentTodo);
@@ -50,7 +65,7 @@ $(document).ready(function () {
 
         // Check if there are child todos
         if (todo.children.length > 0) {
-          const childTodoList = $("<div class='ml-3 mt-n10'></div>"); // Add left margin and top margin
+          const childTodoList = $("<div class='ml-3 mt-n10 child-render-negative'></div>"); // Add left margin and top margin
           todo.children.forEach((child) => {
             const childTodo = `
             
@@ -64,16 +79,16 @@ $(document).ready(function () {
                     <img src="assets/arrow-long-right-c.svg" alt="">
                     </button>
                     <button class="btn btn-sm mr-2 delete-todo" data-index="${index}" data-type="child">
-                    <img src="assets/delete.svg" alt="">
+                      <img src="assets/delete.svg" alt="">
                     </button>
                     <button class="btn btn-sm edit-child-todo" data-toggle="modal" data-target="#childTodoModal" data-index="${index}">
                     <img src="assets/edit.svg" alt="">
                     </button>
-                    <button class="btn btn-sm tick-todo ${child.completed ? 'completed' : ''}" data-index="${index}">
+                    <button class="btn btn-sm tick-todo  ${child.completed ? 'completed' : ''}" data-index="${index}">
                     <img src="assets/checkmark-circled.svg" alt="">
                     </button>
-                    <button class="btn btn-sm star ${todo.important ? 'important' : ''}" data-index="${index}">
-                    <i class="fas fa-star"></i>
+                    <button class="btn btn-sm star star-original ${todo.important ? 'important' : ''}" data-index="${index}">
+                    <i class="fas fa-star fa-2x"></i>
                     </button>
                   </div>
                 </div>
@@ -160,18 +175,45 @@ $(document).ready(function () {
     $("#childTodoModal").modal("hide");
   }
 
-  function deleteTodo(index) {
+  // function deleteTodo(index) {
+  //   mainTodoList.splice(index, 1);
+  //   renderTodoList();
+  //   saveToLocalStorage();
+  // }
+
+  // function deleteChildTodo(parentIndex, childIndex) {
+  //   mainTodoList[parentIndex].children.splice(childIndex, 1);
+  //   renderTodoList();
+  //   saveToLocalStorage();
+  // }
+
+
+
+  // ... Your existing code ...
+
+// Update the deleteTodo function to accept a type parameter
+function deleteTodo(index, type) {
+  if (type === 'main') {
     mainTodoList.splice(index, 1);
-    renderTodoList();
-    saveToLocalStorage();
+  } else if (type === 'child') {
+    const parentIndex = $(this).closest('.card.main-todo').data('index');
+    mainTodoList[parentIndex].children.splice(index, 0);
   }
+  renderTodoList();
+  saveToLocalStorage();
+}
 
-  function deleteChildTodo(parentIndex, childIndex) {
-    mainTodoList[parentIndex].children.splice(childIndex, 1);
-    renderTodoList();
-    saveToLocalStorage();
-  }
+// ... Rest of your code ...
 
+// Add event listener for the "Delete" buttons
+$('#mainTodoList').on('click', '.delete-todo', function () {
+  const index = $(this).data('index');
+  const type = $(this).data('type');
+  deleteTodo(index, type);
+});
+
+
+// ... Rest of your code ...
 
 
 
@@ -266,6 +308,7 @@ $(document).ready(function () {
       .toggleClass('fa-star-o', !todo.important); // Update the star icon class
     $(`[data-index="${index}"]`).toggleClass('important', todo.important);
     todo.category = todo.important ? "important" : "today"; // Update the category based on important status
+    console.log(todo)
     renderTodoList();
     saveToLocalStorage();
   }
@@ -422,12 +465,6 @@ $(document).ready(function () {
       `;
     }
   }
-
-
-
-
-
-
 
 
 });
